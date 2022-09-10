@@ -1,8 +1,10 @@
 ---
 title: "Lab 1 - Data visualization"
-author: "[INSERT NAME]"
+author: "Grace Romero"
 format: pdf
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Load Packages
@@ -12,15 +14,35 @@ editor: visual
 #| message: false
 
 library(tidyverse)
+library(viridis)
 ```
 
 ## Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r ex-1, message=FALSE, warning=False}
+#population_density_histogram
+
+ggplot(data = midwest,
+       aes(x=popdensity)) + 
+    geom_histogram(binwidth = 10000, fill = "blue") + labs(title= "Population Density vs. Counties in the Midwest",x= "Population Density",y="Midwest Counties")
+```
+
+The shape of this is histogram is skewed right. Additionally, there do seem to be outliers because on the tail of the plot, there is a small blue bar indicating that there are data points between x = 75000 and x = 10000.
 
 ## Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+```{r}
+
+#college_degree_vs_poverty_scatterplot
+
+ggplot(data = midwest,
+       aes(x=percollege, y = percbelowpoverty, color = state)) + 
+    geom_point() + labs
+(title= "Percentage of People with College Degree vs. Percentage Below Poverty",
+  x= "% with College Degree",
+  y="% Below Poverty", 
+  legend = "State") + scale_colour_viridis_d()
+```
 
 ## Exercise 3
 
@@ -28,11 +50,8 @@ library(tidyverse)
 
 ## Exercise 4
 
-
 ## Exercise 5
 
-
 ## Exercise 6
-
 
 ## Exercise 7

@@ -59,6 +59,34 @@ I prefer this plot to the plot from Exercise 3. This is because I can more clear
 
 ## Exercise 5
 
+```{r ex-1, message=FALSE, warning=False}
+
+#area_of_county_based_on_state_boxplots
+
+ggplot(data=midwest,
+       aes(x= state, y = area, fill = state )) + 
+        geom_boxplot() + labs (title="Area of County Based on State", x= "State", y="Area", legend= "State")
+```
+
+From this plot, I can observe the average size of the counties in each of the states in this study. I can also determine how varied the size of the counties in each state is by looking it the size of the box. The closer together the top and bottom boundaries, the less variety there is. For example, in Indiana, the counties are more similar in size than in Wisconsin.
+
+The state with the largest county is Michigan. The dot which extends off of the Michigan plot is an outlier, representing the maximum value of the data. Because it is almost equal to y=0.12, greater than any of the other outliers of the other boxplots, I know that this area is the greatest of all the counties in this entire data set.
+
 ## Exercise 6
+
+```{r ex-1, message=FALSE, warning=False}
+
+#percentage_of_counties_in_metro_area_bar_plot
+
+midwest <- midwest |>
+  mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+
+ggplot(data=midwest,
+       aes(x = state, fill = metro)) + 
+        geom_bar(position="fill") + labs (title="Percentage of Counties Located in a Metropolitan Area per State", x= "State", y="Proportion of Counties", legend= "metro")
+
+```
+
+From this plot, I notice that most counties are not located in a metropolitan area in each state in the data set.
 
 ## Exercise 7

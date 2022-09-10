@@ -19,7 +19,8 @@ library(viridis)
 
 ## Exercise 1
 
-```{r ex-1, message=FALSE, warning=False}
+```{r}
+
 #population_density_histogram
 
 ggplot(data = midwest,
@@ -31,7 +32,7 @@ The shape of this is histogram is skewed right. Additionally, there do seem to b
 
 ## Exercise 2
 
-```{r ex-1, message=FALSE, warning=False}
+```{r}
 
 #college_degree_vs_poverty_scatterplot
 
@@ -46,7 +47,7 @@ In the data plot from Exercise 2, I observe that as the percentage of people wit
 
 ## Exercise 4
 
-```{r ex-1, message=FALSE, warning=False}
+```{r}
 
 #college_degree_vs_poverty_smooth_curve_fit
 
@@ -59,7 +60,7 @@ I prefer this plot to the plot from Exercise 3. This is because I can more clear
 
 ## Exercise 5
 
-```{r ex-1, message=FALSE, warning=False}
+```{r}
 
 #area_of_county_based_on_state_boxplots
 
@@ -74,7 +75,7 @@ The state with the largest county is Michigan. The dot which extends off of the 
 
 ## Exercise 6
 
-```{r ex-1, message=FALSE, warning=False}
+```{r}
 
 #percentage_of_counties_in_metro_area_bar_plot
 

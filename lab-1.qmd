@@ -31,24 +31,31 @@ The shape of this is histogram is skewed right. Additionally, there do seem to b
 
 ## Exercise 2
 
-```{r}
+```{r ex-1, message=FALSE, warning=False}
 
 #college_degree_vs_poverty_scatterplot
 
 ggplot(data = midwest,
        aes(x=percollege, y = percbelowpoverty, color = state)) + 
-    geom_point() + labs
-(title= "Percentage of People with College Degree vs. Percentage Below Poverty",
-  x= "% with College Degree",
-  y="% Below Poverty", 
-  legend = "State") + scale_colour_viridis_d()
+    geom_point() + labs (title= "Percentage of People with College Degree vs. Percentage Below Poverty",x= "% with College Degree", y="% Below Poverty",legend = "State") + scale_colour_viridis_d()
 ```
 
 ## Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+In the data plot from Exercise 2, I observe that as the percentage of people with a college degree increases, the percentage of people below poverty decreases. It seems that in all of the states, these variables are associated. I don't think this relationship is linear because there is a lot of curvature in the trend of the data. It seems that the data from all of the states have similar tendencies, but there are a few distributional differences. For example, the points representative of people in Wisconsin begin higher on the y-axis than the points representative of people in the other three states.
 
 ## Exercise 4
+
+```{r ex-1, message=FALSE, warning=False}
+
+#college_degree_vs_poverty_smooth_curve_fit
+
+ggplot(data = midwest,
+       aes(x=percollege, y = percbelowpoverty, color = state, se = FALSE)) + 
+    geom_smooth() + labs (title= "Percentage of People with College Degree vs. Percentage Below Poverty",x= "% with College Degree", y="% Below Poverty",legend = "State") + scale_colour_viridis_d()
+```
+
+I prefer this plot to the plot from Exercise 3. This is because I can more clearly see the general tendencies of the data in this plot than in the other one. I can also more clearly identify the differences between the states with this plot because it is easier to compare four lines than a large number of dots.
 
 ## Exercise 5
 

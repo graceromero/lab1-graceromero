@@ -25,7 +25,10 @@ library(viridis)
 
 ggplot(data = midwest,
        aes(x=popdensity)) + 
-    geom_histogram(binwidth = 10000, fill = "blue") + labs(title= "Population Density vs. Counties in the Midwest",x= "Population Density",y="Midwest Counties")
+    geom_histogram(binwidth = 10000, fill = "blue") + 
+  labs(title= "Population Density vs. Counties in the Midwest",
+  x= "Population Density",
+  y="Midwest Counties")
 ```
 
 The shape of this is histogram is skewed right. Additionally, there do seem to be outliers because on the tail of the plot, there is a small blue bar indicating that there are data points between x = 75000 and x = 10000.
@@ -38,7 +41,11 @@ The shape of this is histogram is skewed right. Additionally, there do seem to b
 
 ggplot(data = midwest,
        aes(x=percollege, y = percbelowpoverty, color = state)) + 
-    geom_point() + labs (title= "Percentage of People with College Degree vs. Percentage Below Poverty",x= "% with College Degree", y="% Below Poverty",color = "State") + scale_colour_viridis_d()
+    geom_point() + 
+  labs (title="Relationship Between a College Degree and the Poverty Line",
+  x= "% with College Degree", 
+  y="% Below Poverty",
+  color = "State") + scale_colour_viridis_d()
 ```
 
 ## Exercise 3
@@ -53,7 +60,11 @@ In the data plot from Exercise 2, I observe that as the percentage of people wit
 
 ggplot(data = midwest,
        aes(x=percollege, y = percbelowpoverty, color = state, se = FALSE)) + 
-    geom_smooth() + labs (title= "Percentage of People with College Degree vs. Percentage Below Poverty",x= "% with College Degree", y="% Below Poverty",color = "State") + scale_colour_viridis_d() 
+    geom_smooth() + 
+  labs (title= "Relationship Between a College Degree and the Poverty Line",
+  x= "% with College Degree", 
+  y="% Below Poverty",
+  color = "State") + scale_colour_viridis_d() 
 ```
 
 I prefer this plot to the plot from Exercise 3. This is because I can more clearly see the general tendencies of the data in this plot than in the other one. I can also more clearly identify the differences between the states with this plot because it is easier to compare four lines than a large number of dots.
@@ -65,8 +76,11 @@ I prefer this plot to the plot from Exercise 3. This is because I can more clear
 #area_of_county_based_on_state_boxplots
 
 ggplot(data=midwest,
-       aes(x= state, y = area, fill = state )) + 
-        geom_boxplot() + labs (title="Area of County Based on State", x= "State", y="Area", fill = "State")
+  aes(x= state, y = area, fill = state )) + 
+  geom_boxplot() + 
+  labs (title="Area of County Based on State", 
+  x= "State", 
+  y="Area", fill = "State")
 ```
 
 From this plot, I can observe the average size of the counties in each of the states in this study. I can also determine how varied the size of the counties in each state is by looking it the size of the box. The closer together the top and bottom boundaries, the less variety there is. For example, in Indiana, the counties are more similar in size than in Wisconsin.
@@ -83,12 +97,15 @@ midwest <- midwest |>
   mutate(metro = if_else(inmetro == 1, "Yes", "No"))
 
 ggplot(data=midwest,
-       aes(x = state, fill = metro)) + 
-        geom_bar(position="fill") + labs (title="Percentage of Counties Located in a Metropolitan Area per State", x= "State", y="Proportion of Counties", fill = "Metro")
+      aes(x = state, fill = metro)) + 
+      geom_bar(position="fill") + 
+  labs (title="% of Counties Located in a Metropolitan Area per State", 
+        x= "State", 
+        y="Proportion of Counties", fill = "Metro")
 
 ```
 
-From this plot, I notice that most counties are not located in a metropolitan area in each state in the data set.
+From this plot, I notice that most counties are not located in a metropolitan area in each state in the data set. I also notice that the bars fill the whole column from y = 0 to y = 1. If I removed position = "fill" from the code, however, they do not and the values along the y-axis change. I'm not sure why there's a difference in doing that.
 
 ## Exercise 7
 
@@ -98,5 +115,10 @@ From this plot, I notice that most counties are not located in a metropolitan ar
 
 ggplot(data=midwest,
        aes(x = percollege, y = popdensity, color = percbelowpoverty)) + 
-        geom_point(size = 2, alpha = 0.5, ) + labs (title="Do people with college degrees tend to live in denser areas?", x= "% college educated", y="Population density (person / unit area)", color = "% below poverty line") + facet_wrap("state") + theme_minimal()
+        geom_point(size = 2, alpha = 0.5, ) + 
+  labs (title="Do people with college degrees tend to live in denser areas?", 
+        x= "% college educated", 
+        y="Population density (person / unit area)", 
+        color = "% below \n poverty line") + 
+  facet_wrap("state") + theme_minimal()
 ```
